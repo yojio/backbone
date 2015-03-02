@@ -1,0 +1,17 @@
+application: aonotestsample
+version: 0
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /$
+  static_files: client/html/index.html
+  upload: client/.*
+
+- url: /(.+\..+)$
+  static_files: client/\1
+  upload: client/.*
+
+- url: /server/.*
+  script: main.application
