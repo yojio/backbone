@@ -13,5 +13,5 @@ handlers:
   static_files: client/\1
   upload: client/.*
 
-- url: /server/.*
-  script: main.application
+- url: /.*
+  script: main.app

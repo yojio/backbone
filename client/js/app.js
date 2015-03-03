@@ -162,6 +162,78 @@ define([ 'backbone' ], function(Backbone) {
 
 	console.log("pluck result: " + JSON.stringify(objs.pluck("name")));
 
+	var Memo = Backbone.Model.extend({
+		urlRoot: "/memo",
+		idAttribute: "key",
+		defaults:{
+			"content":""
+		}
+	});
+
+	var memo = new Memo();
+
+	console.log("Before save: " + JSON.stringify(memo));
+	console.log("isNew(): " + memo.isNew());
+
+	memo.save({content: "Acroquest"},{
+		success: function(){
+			console.log("After save(post) memo: " + JSON.stringify(memo));
+			console.log("After save(post) memo.isNew():" + memo.isNew())
+		}
+	}).pipe(function(){
+		memo.set({content: "Acro"});
+
+		console.log("Before fetch memo:" + JSON.stringify(memo));
+
+		return memo.fetch({
+			success: function() {
+				console.log("After fetch memo: " + JSON.stringify(memo))
+			}
+		});
+
+	}).pipe(function(){
+		console.log("Before save(put) memo: " + JSON.stringify(memo));
+		return memo.save({content: "Acroquest Technology"},{
+			success: function(){
+				console.log("After save(put) memo: " + JSON.stringify(memo))
+			}
+		});
+
+	}).done(function(){
+		console.log("Before delete memo:" + JSON.stringify(memo));
+		return memo.destroy({
+			success: function(){
+				console.log("After delete memo:" + JSON.stringify(memo))
+			}
+		});
+	});
+
+	console.log("After save: " + JSON.stringify(memo));
+	console.log("isNew(): " + memo.isNew());
+
+	var Memo = Backbone.Model.extend({
+		idAttribute: "key",
+		defaults: {
+			"content": ""
+		}
+	})
+
+	var MemoList = Backbone.Collection.extend({
+		model: Memo,
+		url: "/memo"
+	})
+
+
+https://appkitbox.com/knowledge/javascript/20130604-52
+
+
+
+
+
+
+
+
+
 
 
 

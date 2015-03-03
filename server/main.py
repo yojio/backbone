@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import webapp2
+import memo
 
 class MainPage(webapp2.RequestHandler):
 
@@ -9,7 +10,9 @@ class MainPage(webapp2.RequestHandler):
         self.response.write("test")
 
 
-application = webapp2.WSGIApplication([
-                                      ('/', MainPage),
-                                      ], debug=True)
-
+app = webapp2.WSGIApplication([
+            webapp2.Route(r'/memo', memo.MemoHandler),
+            webapp2.Route(r'/memo/<key>', memo.MemoHandler),
+            webapp2.Route(r'/', MainPage)
+       ],
+       debug = True)
