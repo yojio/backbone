@@ -1,4 +1,4 @@
-define([ 'underscore', 'backbone' ], function(_, Backbone) {
+define([ 'underscore', 'backbone','app3'], function(_, Backbone) {
 
 	var Memo = Backbone.Model.extend({
 		idAttribute : "key",
