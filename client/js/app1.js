@@ -1,6 +1,8 @@
 define(
-		[ 'backbone','app2'],
+		[ 'backbone'],
 		function(Backbone) {
+
+			return
 
 			console.log(Backbone === window.Backbone);
 
