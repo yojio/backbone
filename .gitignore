@@ -1,1 +1,5 @@
 /appengine_config.pyc
+.project
+.pydevproject
+.settings/de.loskutov.anyedit.AnyEditTools.prefs
+.settings/org.eclipse.core.resources.prefs
