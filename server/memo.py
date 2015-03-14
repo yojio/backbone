@@ -5,8 +5,8 @@ import json
 from google.appengine.ext import ndb
 import webapp2
 
-import models
 
+import models
 
 class MemoHandler(webapp2.RequestHandler):
 
